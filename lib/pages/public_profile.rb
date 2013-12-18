@@ -1,11 +1,12 @@
 class PublicProfile
 
-  BASE_URL = 'http://crime.ee/index.php?a=11&m=world1&k='
+  BASE_URL = 'http://crime.ee/index.php?a=11&m={world}&k={user}'
   YES = 'JAH'
 
-  def initialize(username)
-    @username = username
-    @page = Nokogiri::HTML(RestClient.get(BASE_URL + Rack::Utils.escape(@username)))
+  def initialize(username, world)
+    @username, @world = username, world
+    puts PublicProfile.get_profile_url(world, username)
+    @page = Nokogiri::HTML(RestClient.get(PublicProfile.get_profile_url(world, username)))
   end
 
 
@@ -44,4 +45,7 @@ class PublicProfile
     values
   end
 
+  def self.get_profile_url(world, username)
+    BASE_URL.gsub('{world}', world).gsub('{user}',Rack::Utils.escape(username))
+  end
 end

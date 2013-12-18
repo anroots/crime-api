@@ -2,10 +2,10 @@ class PlayersController < ApplicationController
 
   def show
 
-    @player = Player.find_by_id(params[:id])
+    @player = Player.where({username: params[:username],world: params[:world]})
 
     if @player.blank?
-      @player = Player.new({username: params[:username]})
+      @player = Player.new({username: params[:username],world: params[:world]})
       @player.remote_load
     end
 
