@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
 
-  def show
+  def index
 
     @player = Player.where({username: params[:username],world: params[:world]})
 
