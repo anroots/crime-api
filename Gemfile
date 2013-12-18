@@ -44,3 +44,6 @@ gem 'nokogiri', '1.6.0'
 
 # REST
 gem "rest-client", "~> 1.6.7"
+
+# Heroku
+gem 'rails_12factor', group: :production
