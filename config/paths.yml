@@ -5,6 +5,59 @@ stats:
   fame:
     path: //*[@id="centerbar"]/div/table/tr[10]/td[1]/strong
     type: int
+  thieving:
+    path: //*[@id="centerbar"]/div/table/tr[11]/td[1]/strong
+    type: int
+  crafting:
+    path: //*[@id="centerbar"]/div/table/tr[12]/td[1]/strong
+    type: int
+  smithing:
+    path: //*[@id="centerbar"]/div/table/tr[13]/td[1]/strong
+    type: int
+  gardening:
+    path: //*[@id="centerbar"]/div/table/tr[14]/td[1]/strong
+    type: int
+  endurance:
+    path: //*[@id="centerbar"]/div/table/tr[15]/td[1]/strong
+    type: int
+  strength:
+    path: //*[@id="centerbar"]/div/table/tr[16]/td[1]/strong
+    type: int
+  dexterity:
+    path: //*[@id="centerbar"]/div/table/tr[17]/td[1]/strong
+    type: int
+  weaponhandling:
+    path: //*[@id="centerbar"]/div/table/tr[18]/td[1]/strong
+    type: int
+  activity:
+    path: //*[@id="centerbar"]/div/table/tr[10]/td[2]/strong
+    type: string
+  chemistry:
+    path: //*[@id="centerbar"]/div/table/tr[11]/td[2]/strong
+    type: int
+  barkeeping:
+    path: //*[@id="centerbar"]/div/table/tr[12]/td[2]/strong
+    type: int
+  herbalism:
+    path: //*[@id="centerbar"]/div/table/tr[13]/td[2]/strong
+    type: int
+  cooking:
+    path: //*[@id="centerbar"]/div/table/tr[14]/td[2]/strong
+    type: int
+  defense:
+    path: //*[@id="centerbar"]/div/table/tr[15]/td[2]/strong
+    type: int
+  speed:
+    path: //*[@id="centerbar"]/div/table/tr[16]/td[2]/strong
+    type: int
+  fighting:
+    path: //*[@id="centerbar"]/div/table/tr[17]/td[2]/strong
+    type: int
+  mining:
+    path: //*[@id="centerbar"]/div/table/tr[18]/td[2]/strong
+    type: int
+
+
 account:
   signup_date:
     path: //*[@id="centerbar"]/div/table/tr[4]/td/strong
