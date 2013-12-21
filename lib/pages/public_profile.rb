@@ -50,7 +50,7 @@ class PublicProfile
       values[key] = parse_item(item)
     end
 
-    values['account'].merge({
+    values['account'].merge!({
                                 world: @world,
                                 username: @username,
                                 profile_url: PublicProfile.profile_url(@world, @username)
