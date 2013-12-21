@@ -1,9 +1,21 @@
-<h1>CRIME API</h1>
+<h1>API for crime.ee player data</h1>
 
-
+This JSON API parses the HTML of <a href="http://crime.ee">crime.ee</a>
+public player stats page and returns a neatly extrated JSON object with all the relevant data.
 
 <h2>Player data</h2>
 
-<strong>/players?world={world}&username={username}</strong>
-<p>Get info about a player - <%= link_to 'Example', 'players?world=valge&username=flama123' %></a></p>
+<strong>Base URL: <a href="/players">/players</a></strong>
+
+<h3>Params</h3>
+
+<ul>
+  <li>username</li>
+  <li>world</li>
+</ul>
+
+<h3>Example</h3>
+<p><%= link_to '/players?world=valge&username=flama123', 'players?world=valge&username=flama123' %></a></p>
 <hr/>
+
+Created by <a href="http://about.me/anroots">A. Roots</a> 2013
