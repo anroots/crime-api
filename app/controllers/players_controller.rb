@@ -2,6 +2,12 @@ class PlayersController < ApplicationController
 
   def index
 
+    # Require API key
+    unless params.has_key?('api_key') and params[:api_key] == 'demo'
+      render json: {response: 'API key invalid'}, :status => :unauthorized
+      return
+    end
+
     require 'pages/public_profile'
 
     begin
