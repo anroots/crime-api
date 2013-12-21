@@ -1,0 +1,23 @@
+stats:
+  mining:
+    path: //*[@id="centerbar"]/div/table/tr[18]/td[2]/strong
+    type: int
+  fame:
+    path: //*[@id="centerbar"]/div/table/tr[10]/td[1]/strong
+    type: int
+account:
+  signup_date:
+    path: //*[@id="centerbar"]/div/table/tr[4]/td/strong
+    type: string
+  online_date:
+    path: //*[@id="centerbar"]/div/table/tr[5]/td/strong
+    type: string
+  banned:
+    path: //*[@id="centerbar"]/div/table/tr[8]/td/strong
+    type: bool
+  vip:
+    path: //*[@id="centerbar"]/div/table/tr[6]/td/strong
+    type: bool
+  has_clan:
+    path:  //*[@id="centerbar"]/div/table/tr[7]/td/strong
+    type: bool
