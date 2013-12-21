@@ -1,15 +1,16 @@
 class PublicProfile
 
   BASE_URL = 'http://crime.ee/index.php?a=11&m={world}&k={user}'
-  YES = 'JAH'
+  YES = 'jah'
 
-  def initialize(username, world)
+  def initialize(world, username)
     @username, @world = username, world
-    puts PublicProfile.get_profile_url(world, username)
-    @page = Nokogiri::HTML(RestClient.get(PublicProfile.get_profile_url(world, username)))
+    puts PublicProfile.profile_url(world, username)
+    @page = Nokogiri::HTML(RestClient.get(PublicProfile.profile_url(world, username)))
 
 
     if @page.at_xpath('//*[@id="message-container"]/p')
+      puts @page.text
       raise ArgumentError, 'User not found'
     end
 
@@ -17,7 +18,11 @@ class PublicProfile
 
 
   def parse
-    values = {}
+    values = {
+          world: @world,
+          username: @username,
+          profile_url: PublicProfile.profile_url(@world,@username)
+    }
 
     @numeric_values = {
         mining: '//*[@id="centerbar"]/div/table/tr[18]/td[2]/strong',
@@ -25,11 +30,15 @@ class PublicProfile
     }
 
     @string_values = {
-        world: '//*[@id="centerbar"]/div/table/tr[3]/td/strong'
+        world: '//*[@id="centerbar"]/div/table/tr[3]/td/strong',
+        signup_date: '//*[@id="centerbar"]/div/table/tr[4]/td/strong',
+        online_date: '//*[@id="centerbar"]/div/table/tr[5]/td/strong'
     }
 
     @boolean_values = {
-        banned: '//*[@id="centerbar"]/div/table/tr[8]/td/strong'
+        banned: '//*[@id="centerbar"]/div/table/tr[8]/td/strong',
+        vip: '//*[@id="centerbar"]/div/table/tr[6]/td/strong',
+        has_clan: '//*[@id="centerbar"]/div/table/tr[7]/td/strong'
     }
 
 
@@ -45,13 +54,15 @@ class PublicProfile
 
     # Booleans
     @boolean_values.each do |key, xpath|
-      values[key] = @page.xpath(xpath).text.to_s.strip.downcase == YES
+      values[key] = @page.xpath(xpath).text.strip.downcase == YES
     end
 
     values
   end
 
-  def self.get_profile_url(world, username)
+  def self.profile_url(world, username)
     BASE_URL.gsub('{world}', world).gsub('{user}',Rack::Utils.escape(username))
   end
+
+
 end
