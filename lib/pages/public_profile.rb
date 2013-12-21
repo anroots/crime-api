@@ -7,6 +7,14 @@ class PublicProfile
     @username, @world = username, world
     puts PublicProfile.get_profile_url(world, username)
     @page = Nokogiri::HTML(RestClient.get(PublicProfile.get_profile_url(world, username)))
+
+    puts @page.xpath('//*[@id="message-container"]/p')
+    puts '------------'
+    if @page.at_xpath('//*[@id="message-container"]/p')
+      puts "404!!"
+      raise ArgumentError, 'User not found'
+    end
+
   end
 
 

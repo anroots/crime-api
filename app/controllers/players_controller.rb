@@ -6,10 +6,16 @@ class PlayersController < ApplicationController
 
     if @player.blank?
       @player = Player.new({username: params[:username],world: params[:world]})
-      @player.remote_load
+
+      begin
+        @player.remote_load
+      rescue
+        render json: {response: 'User Not Found!'}, :status => :not_found
+        return
+      end
     end
 
-    render json: @player
+    render json: @player[0]
   end
 
 end
