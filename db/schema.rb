@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131217155612) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "players", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
