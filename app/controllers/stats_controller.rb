@@ -11,7 +11,7 @@ class StatsController < ApplicationController
       end
     end
 
-    render json: {result: online}
+    render nothing: true
 
   end
 end
