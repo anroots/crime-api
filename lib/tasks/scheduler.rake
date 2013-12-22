@@ -6,10 +6,11 @@ task :save_online_users => :environment do
 
   # Save unique usernames
   if online.count
-    online.each do |username|
-      OnlinePlayer.new.update({:username => username}) unless OnlinePlayer.find_by_username(username)
+    online.each do |user|
+      unless OnlinePlayer.find_by_username(user[0])
+        OnlinePlayer.new.update({:username => user[0], :world => user[1]})
+      end
     end
   end
 
-  puts online
 end
