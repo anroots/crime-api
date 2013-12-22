@@ -5,6 +5,8 @@ public player stats page and returns a neatly extrated JSON object with all the 
 
 <h2>Player data</h2>
 
+Output stats for a single player.
+
 <strong>Base URL: <a href="/players">/players</a></strong>
 
 <h3>Parameters</h3>
@@ -17,6 +19,22 @@ public player stats page and returns a neatly extrated JSON object with all the 
 
 <h3>Example</h3>
 <p><%= link_to '/players?world=valge&username=flama123&api_key=demo', 'players?world=valge&username=flama123&api_key=demo' %></a></p>
+<hr/>
+
+<h2>List of Players</h2>
+
+List all players by world.
+
+<strong>Base URL: <a href="/players/all">/players/all</a></strong>
+
+<h3>Parameters</h3>
+
+<ul>
+  <li><strong>api_key</strong> - use "demo", required</li>
+</ul>
+
+<h3>Example</h3>
+<p><%= link_to '/players/all?api_key=demo', 'players/all?api_key=demo' %></a></p>
 <hr/>
 
 Created by <a href="http://about.me/andoroots">A. Roots</a> 2013
