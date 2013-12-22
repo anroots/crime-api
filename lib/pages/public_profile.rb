@@ -5,7 +5,6 @@ class PublicProfile
 
   def initialize(world, username)
     @username, @world = username, world
-    puts PublicProfile.profile_url(world, username)
     @page = Nokogiri::HTML(RestClient.get(PublicProfile.profile_url(world, username)))
 
 

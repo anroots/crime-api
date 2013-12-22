@@ -1,4 +1,5 @@
 CrimeApi::Application.routes.draw do
+  get "stats/index"
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,6 +15,8 @@ CrimeApi::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :players, defaults: {format: :json}
+
+  get 'stats/fetch' => 'stats#fetch'
 
   # Example resource route with options:
   #   resources :products do
