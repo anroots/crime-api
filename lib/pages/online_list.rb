@@ -13,8 +13,8 @@ class OnlineList
 
     {:valge => '//*[@id="centerbar"]/div[2]/table/tr/td[1]/table/tr',
      :sinine => '//*[@id="centerbar"]/div[2]/table/tr/td[2]/table/tr',
-     :roheline => '//*[@id="centerbar"]/div[2]/table/tr/td[3]/table/tr',
-     :must => '//*[@id="centerbar"]/div[2]/table/tr/td[4]/table/tr'}.each do |world, xpath|
+     :world1 => '//*[@id="centerbar"]/div[2]/table/tr/td[3]/table/tr',
+     :world2 => '//*[@id="centerbar"]/div[2]/table/tr/td[4]/table/tr'}.each do |world, xpath|
       rows = @page.xpath(xpath)
       parse_rows(rows).each do |username|
         results.push([username, world])

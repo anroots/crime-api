@@ -58,17 +58,17 @@ class PublicProfile
 
     # Additional values
     values['account'].merge!({
-                                world: @world,
-                                username: @username,
-                                profile_url: PublicProfile.profile_url(@world, @username)
-                            })
+                                 world: @world,
+                                 username: @username,
+                                 profile_url: PublicProfile.profile_url(@world, @username)
+                             })
 
     values
   end
 
   # Full profile URL for crime.ee
   def self.profile_url(world, username)
-    BASE_URL.gsub('{world}', world).gsub('{user}', Rack::Utils.escape(username))
+    BASE_URL.gsub('{world}', world.to_s).gsub('{user}', Rack::Utils.escape(username.to_s))
   end
 
 

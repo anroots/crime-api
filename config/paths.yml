@@ -57,6 +57,10 @@ stats:
     path: //*[@id="centerbar"]/div/table/tr[18]/td[2]/strong
     type: int
 
+gang:
+  name:
+    path: //*[@id="centerbar"]/div/table/tr[29]/td/strong[1]/a
+    type: string
 
 account:
   signup_date:

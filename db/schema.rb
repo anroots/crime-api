@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222084753) do
+ActiveRecord::Schema.define(version: 20131225132751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friend_links", force: true do |t|
+    t.integer "from_id"
+    t.integer "to_id"
+    t.string  "value"
+  end
 
   create_table "online_players", force: true do |t|
     t.string   "username"
     t.string   "world",      default: "valge"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "activity",   default: 0.0
+    t.string   "color",      default: "666666"
+    t.integer  "fame",       default: 0
   end
 
   create_table "players", force: true do |t|

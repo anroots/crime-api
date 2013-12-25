@@ -1,4 +1,5 @@
 CrimeApi::Application.routes.draw do
+  get "friends_graph/index"
   get "stats/index"
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -14,6 +15,8 @@ CrimeApi::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   get 'players/all', to: 'players#all'
+  get 'friends_graph', to: 'friends_graph#index'
+  get 'friends_graph/gexf', to: 'friends_graph#gexf'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :players, defaults: {format: :json}
